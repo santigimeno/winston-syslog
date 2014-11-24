@@ -54,8 +54,9 @@ In addition to the options accepted by the syslog (compliant with [RFC 3164][1] 
 Because syslog only allows a subset of the levels available in [winston][0], levels that do not match will be ignored. Therefore, in order to use `winston-syslog` effectively, you should indicate to [winston][0] that you want to use the syslog levels:
 
 ``` js
+  var syslog_config = require('winston-syslog').Config;
   var winston = require('winston');
-  winston.setLevels(winston.config.syslog.levels);
+  winston.setLevels(syslog_config.levels);
 ```
 
 The `Syslog` transport will only log to the level that are available in the syslog protocol. These are (in increasing order of severity):
